@@ -3,6 +3,11 @@
 
 ---
 
+You can get the latest version of the demos from http://github.com/BretStateham/ZisForZombie
+
+
+---
+
 ##Steps##
 
  - [Create the Game Project](#CreateGame)
