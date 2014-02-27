@@ -27,6 +27,7 @@ To follow the steps in the demo below, you will need the following:
  - [Add the Enemy](#AddEnemy)
  - [Check for Zombie and Enemy Collisions](#CheckForZombieEnemyCollisions)
  - [Add Brians for the Zombie to Collect](#AddBrains)
+ - [Add Pits](#AddPits)
  - [Add Background](#AddBackground)
 
 <!-- ======================================================================= -->
@@ -40,6 +41,8 @@ Create a new Windows 8 game in Construct 2
 - Start **Construct 2**
 
 - Create a **"New Windows 8 Project"**.  From the ribbon bar, click **"File"** | **"New"**, select **"New Windows 8 Project"**, then click **"Open"**
+
+	![00NewWin8Project](images/00newwin8project.png?raw=true)
 
 - In the **Projects** Bar, ensure that the new project is selected:
 
@@ -65,7 +68,7 @@ Create a new Windows 8 game in Construct 2
 
 - Zoom out to show the entire designer surface
 
-- On the design surface, Show that the Window Size (dotted line) is different thant the Layout size (white box)
+- On the design surface, note that the Window Size (dotted line) is different thant the Layout size (white box)
 
 	![04WindowsSizevsLayoutSize](images/04windowssizevslayoutsize.png?raw=true "Window Size vs Layout Size")
 
@@ -78,9 +81,11 @@ Create a new Windows 8 game in Construct 2
 
 - From menu bar, select **"File"** | **"Save As Single File..."**.  Save the file as **"ZisForZombie.capx"** in the directory of your choice.  
 
+	![05SaveAsSingleFile](images/05saveassinglefile.png?raw=true "Save As Single File")
+
 	> **Note:** **.capx** files are basically **.zip** files that contain the entire projects assets.  They make it easy to share your project with others. For large projects, they can be slow, so using **"File"** | **"Save As Project..."** may be a better choice in that case. 
 
-
+A completed version of the game so far can be found here: **"Demo\End\01 - ZisForZombie - Initial Project.capx"**
 
 <!-- ======================================================================= -->
 <a name="SetupTheGameLayers" />
@@ -88,10 +93,10 @@ Create a new Windows 8 game in Construct 2
 <!-- ======================================================================= -->
 ---
 
-Setup the layers in the Game Layout
+In this step, we will setup the various layers in the game.  A single "Layout" (like our "Game Layout") can have multiple "Layers".  Layers allow you to control which objects appear infront of the scene or in back of the scene.  You can also change the rate at which various layers move and scale.  This let's you create cool parallalx effects and more.  
 
 - With the **"Game Layout"** tab selected in the designer, switch to the **"Layers"** tab. 
-- Select **"Layer 0"** and rename it to **"Background"**
+- Select **"Layer 0"** and rename it to **"Background"**.  You can right click on the layer name and select **"Rename"** from the pop-up menu, or click the **"pencil"** icon on the **Layers** bar
 
 	![06RenameLayer0ToBackground](images/06renamelayer0tobackground.png?raw=true "Rename Layer 0 to Background")
 
@@ -99,6 +104,8 @@ Setup the layers in the Game Layout
 - Name the new layer **"Game"**
 
 	![07AddGameLayer](images/07addgamelayer.png?raw=true "Add Game Layer")
+
+A completed version of the game so far can be found here: **"Demo\End\02 - ZisForZombie - Layers Created.capx"**
 
 <!-- ======================================================================= -->
 <a name="AddStandingZ" />
@@ -124,7 +131,7 @@ We will start adding our hero, "Z" to the game.  He has multiple states (standin
 
 	![10AnimationEditorWindows](images/10animationeditorwindows.png?raw=true "Animation Editor Windows")
 
-- In the **"Animations"** window, rename the **"Default"** animation **"Standing"**
+- In the **"Animations"** window, rename the **"Default"** animation **"Standing"**.  You can **right-click** on the **"Default"** name and select **"Rename"** fromt the pop-up menu.
 
 	![11RenameDefaultAnimationToStanding](images/11renamedefaultanimationtostanding.png?raw=true "Rename Default Animation to Standing")
 
@@ -132,7 +139,7 @@ We will start adding our hero, "Z" to the game.  He has multiple states (standin
 
 	![12ImportFromSpriteStrip](images/12importfromspritestrip.png?raw=true "Import From Sprite Strip")
 
-- Navigate to the **"\Assets\Art\Z\Standing"** folder, select the **"StandingZombieNoOutline64.png"** file, and click **"Open"**
+- Navigate to the **"Demo\Assets\Art\Z\Standing"** folder, select the **"StandingZombieNoOutline64.png"** file, and click **"Open"**
 
 ![13ImportZombieStandingSpriteStrip](images/13importzombiestandingspritestrip.png?raw=true "Import Zombie Standing Sprite Strip")
 
@@ -150,7 +157,6 @@ We will start adding our hero, "Z" to the game.  He has multiple states (standin
 
 	![16CropAnimationFrames](images/16cropanimationframes.png?raw=true "Crop Animation Frames")
 
-- **Close** the **"Edit image: Zombie (Standing, frame 0"** window
 - In the **"Animations"** window, select the **"Standing"** animation.
 - In the **"Properites"** panel, set:
 	- **"Speed:"** 5
@@ -162,6 +168,10 @@ We will start adding our hero, "Z" to the game.  He has multiple states (standin
 
 	![18PreviewStandingAnimation](images/18previewstandinganimation.png?raw=true "Preview Standing Animation")
 
+- **Close** the animation preview window
+
+- **Close** the **"Edit image: Zombie (Standing, frame 0)"** window
+
 - From the **"Home"** ribbon along the top, click **"Run layout"** to run the game in the browser.  You may need to refresh the page in the browser to see the latest changes.
 
 	![19RunLayout](images/19runlayout.png?raw=true "Run Layout")
@@ -169,6 +179,8 @@ We will start adding our hero, "Z" to the game.  He has multiple states (standin
 - The game doesn't do anything right now.  Our Zombie just stands there and wobbles a little. Close the browser when you are done.  
 
 	![20LayoutRunningInBrowser](images/20layoutrunninginbrowser.png?raw=true "Layout Running in Browser")
+
+A completed version of the demo so far can be found here: **"Demo\End\03 - ZisForZombie - Standing Zombie.capx"**
 
 <!-- ======================================================================= -->
 <a name="AddPlatformAndScrollToBehavior" />
@@ -206,11 +218,17 @@ We need our Zombie to be able to move back and forth and jumpt to platforms (we 
 
 	![26ZombiePlatformSettings](images/26zombieplatformsettings.png?raw=true "Zombie Platofrm Settings")
 
+	> **Note:** The **"Max Speed"** property controls how fast our Zombie can move, and the **"Jump Strength"** property controls how high he can jump.  Using the settings above causes our Zombie to move a little bit slower and jump a little bit lower than the default settings.  You can tweak these in your game if desired.  Notice that there are also a bunch of other properties you can play with!
+
 - From the **"Home"** ribbon along the top, click **"Run layout"** to run the game in the browser.  You may need to refresh the page in the browser to see the latest changes. 
 
 	![27RunLayout](images/27runlayout.png?raw=true "Run Layout")
  
 - **Notice that "Z" falls right off the screen**.  That is because we don't any any platforms for him to land on.  Close the browser when done.
+
+A completed version of the demo so far can be found here: **"Demo\End\04 - ZisForZombie - Zombie Behaviors.capx"**
+
+
 
 
 <!-- ======================================================================= -->
@@ -225,11 +243,10 @@ We need platforms for our Zombie to jump around on.  There are a number of platf
 
 	![28TurnOffMinimizeRibbon](images/28turnoffminimizeribbon.png?raw=true "Turn Off Minimize Ribbon")
 
-- Switch to the **"View"** ribbon.  Set the **"Grid Width"** and **"Grid Height"** both to **16**
+- Switch to the **"View"** ribbon.  Turn **ON** the **"Snap to grid"** checkbox, and set the **"Grid Width"** and **"Grid Height"** both to **16**
 
 	> **Note:**, the blocks and sprites we are using are all at sizes that are multiples of 16 (32x32,64x64).  The 16x16 grid size give us a conventient way to position items in the layout. 
 
-	- Turn **ON** the **"Snap to grid"** checkbox.
 	- Optionally turn **ON** the **"Show grid"** checkbox. 
 
 	![29TurnOnGrid](images/29turnongrid.png?raw=true "Turn On Grid")
@@ -244,19 +261,20 @@ We need platforms for our Zombie to jump around on.  There are a number of platf
 	![31AddSolidToBlock](images/31addsolidtoblock.png?raw=true "Add Solid Behavior to Blocks")
 
 - Right click on the design surface and pick **"Insert new object"**.  
+
 - In the **"Insert New Object"** window, select **"Tiled Background"**, set the name to **"GroundFill"** and click **"Insert"**, and use the cross hairs to place an instance to the left of the layout neard the block tiles. 
 
 	![32AddGroundFill](images/32addgroundfill.png?raw=true "Add Ground Fill")
 
-	- In the **"Edit image: GroundFill"** window, click the **"Resize"** button, and set the size to **32x32**
+- In the **"Edit image: GroundFill"** window, click the **"Resize"** button, and set the size to **32x32**
 
 	![33SizeGroundFill](images/33sizegroundfill.png?raw=true "Size Ground Fill")
 
-	- Click the **"Paint Bucket"** icon, **set the fill color** to **43,29,0,255** (**RGBA**), and fill the entire 32x32 image with the color. 
+- Click the **"Paint Bucket"** icon, **set the fill color** to **43,29,0,255** (**RGBA**), and fill the entire 32x32 image with the color. 
 
 	![34SetGroundFillColor](images/34setgroundfillcolor.png?raw=true "Set Ground Fill Color")
 
-	- Close the **"Edit image: GroundFill"** window.
+- Close the **"Edit image: GroundFill"** window.
 
 - **Set the size of the GroundFill object to 32x32** by **selecting it on the designer**, then setting the size to **32,32** in the **Properties bar**
 
@@ -267,9 +285,11 @@ We need platforms for our Zombie to jump around on.  There are a number of platf
 	![36BlockLayout](images/36blocklayout.png?raw=true "Block Layout")
 
 
-  - ***This can be time consuming***.  Just do a quick layout so you can test it.  There is a completed layout at **"Demo\End\02-AfterPlatformLayout-ZisForZombie.capx"**
+  - ***This can be time consuming***.  Just do a quick layout so you can test it.  There is a completed layout at **"Demo\End\05 - ZisForZombie - Platform Blocks.capx"**
 
-- **Run the layout in the browser**. Use the left, right , up arrows to move Z.  Note that he doesn't walk.  Adjust platform distances, etc. as needed.  Close browser when done. 
+- **Run the layout in the browser**. Use the left, right , up arrows to move Z.  Note that he doesn't walk, he just slides.  You may also notice there are places where Z can't naviate through the platform blocks because they are either too close or too far apart.  Adjust as needed.  Close browser when done. 
+
+A completed version of the game so far can be found here: **"Demo\End\05 - ZisForZombie - Platform Blocks.capx"**
     
 
 <!-- ======================================================================= -->
@@ -327,6 +347,8 @@ Add more animations to the Zombie
 
 - Close the **"Edit image.."** window
 
+A completed version of the game so far can be found here: **"Demo\End\06 - ZisForZombie - Zombie Animations.capx"**
+
 <!-- ======================================================================= -->
 <a name="AddZombieMovementEvents" />
 ### Add Zombie Movement Events ###
@@ -340,7 +362,7 @@ So far we've done everything on the Layout page.  Now, we need to add some event
 
 	![44OriginalEvents](images/44originalevents.png?raw=true "Original Events")
 
-- Select all of the existing events, and delete them.
+- Select all of the existing events (**Ctrl+A**), and delete them.
 
 	![45DeleteAllEvents](images/45deleteallevents.png?raw=true "Delete All Events")
 
@@ -348,7 +370,7 @@ So far we've done everything on the Layout page.  Now, we need to add some event
 
 	![46ClickAddEvent](images/46clickaddevent.png?raw=true "Click Add Event")
 
-- In the **Add event** window, click **Zombie** then click **Next**:
+- We'll use events to control which Zombie animation (Standing, Walking, Jumping or Falling) is being played depending on how the is moving.  To start, we'll setup an event that is triggered when the Zombie is NOT Moving.  In the **Add event** window, click **Zombie** then click **Next**:
 
 	![47SelectZombie](images/47selectzombie.png?raw=true "Select Zombie")
 
@@ -356,23 +378,48 @@ So far we've done everything on the Layout page.  Now, we need to add some event
 
 	![48IsMoving](images/48ismoving.png?raw=true "Select Is moving")
 
-- **Right-click** the **"Zombie | Platform is moving"** event and select **"Invert"** to imply the condition is met with the Zombie is NOT moving. 
+- The above event would be triggered when the Zombie IS moving.  We want to trigger instead when it is NOT moving.  To do that, we'll "Invert" the event.  **Right-click** the **"Zombie | Platform is moving"** event and select **"Invert"** to imply the condition is met with the Zombie is NOT moving. 
 
 	![49InvertCondition](images/49invertcondition.png?raw=true "Invert Condition")
+
+- Notice that there is now a red **"X"** next to the event condition.  
+
+- So the event is now set to trigger when the Zombie is NOT moving.  Next, we need to tell Construct 2 what to do when the event triggers.  We do that by adding one or more "Actions". 
 
 - Click the **"Add action"** link
 
 	![50ClickAddAction](images/50clickaddaction.png?raw=true "Click Add Action")
 
-- In the **"Add action"** window:
-	- Select **"Zombie"** and click **"Next"**
-	- Under the **"Animations"** header, click **"Set animation"** and click **"Next"**
+- We want to perform an action (set the animation) on the "Zombie" object.  In the **"Add action"** window, select **"Zombie"** and click **"Next"**:
+
+	![51SelectZombie](images/51selectzombie.png?raw=true "Select Zombie and click Next")
+
+- The action we want to take, is to set the Zombie to play a specific animation. Under the **"Animations"** header, click **"Set animation"** and click **"Next"**
+
+	![52SetAnimation](images/52setanimation.png?raw=true "Select "Set Animation"")
+
 - In the **"Parameters for Zombie: Set animation"** window, set:
 	- **Animation:** "Standing" (include the quotes)
 	- **From:** beginning
 	- click **"Done"**
-- **Right click** the **"Zombie | X Platform is moving"** event, select **"Add"** | **"Add 'Else' (X)"**
-- Add an action to set the Zombie Animation to **"Walking"** (using the method above)
+
+	![52StandingAnimation](images/52standinganimation.png?raw=true)
+
+- Cool.  So now, when the Zombie is NOT moving, the "Standing" animation should be shown.  What about if it IS moving.  We can do that by adding an "Else" event to the previous event.  Since the original event is triggered when the Zombie IS NOT Moving, the Else should be triggered if the Zombie IS moving.  In that case, we want to set the Zombie's animation to "Walking".
+
+- **Right click** an the very left edge of the **"Zombie | X Platform is moving"** event, select **"Add"** | **"Add 'Else' (X)"** from the pop-up menu.
+
+	![53AddElse](images/53addelse.png?raw=true "Add Else")
+
+- On the new **Else** event, click the **"Add Action"** link:
+
+	![54AddElseAction](images/54addelseaction.png?raw=true "Else Action")
+
+- Add an action to set the Zombie Animation to **"Walking"** (using the same steps we used for the "Standing" animation above)
+
+	![55WalkingAnimationAdded](images/55walkinganimationadded.png?raw=true)
+
+- Awesome, so now we have animations that play when the Zombie is Standing and Walking.  There are two other animations though.  One for when the Zombie is Jumping and one for when he is falling.  Use the methods above to create a new Event for Zombie, for when the Platform behavior is Jumping, and have it set the animation to "Jumping".  Repeat again, to show the "Falling" animation when the Zombie is falling:
 
 - Add a new event / action:
 	- **Event Object:** Zombie
@@ -386,7 +433,11 @@ So far we've done everything on the Layout page.  Now, we need to add some event
 	- **Action Object:** Zombie
 	- **Action:** Set Animation to "Falling"
 
-- Run the game in the browser to show the animations.  However, they only look right when the player is moving right.  Close the browser.
+	![56ZombieAnimationEvents](images/56zombieanimationevents.png?raw=true "Add Zombie Animation Events")
+
+- Run the game in the browser to show the animations.  However, they only look right when the player is moving right. This is because the animation is drawn with the Zombie facing right.  He looks fine as long as he is moving right.  If he is moving to the left though it looks like he is walking backwards.  Close the browser.
+
+- To fix the problem, we'll setup two new events.  One will cause the Zombie image to be mirrored if the Left Arrow key is pressed on the keyboard.  The other will set him back to Un-Mirrored if the Right Arrow key is pressed on the keyboard. 
 
 - Add a new event / action:
 	- **Event Object:** Keyboard
@@ -400,6 +451,11 @@ So far we've done everything on the Layout page.  Now, we need to add some event
 	- **Action Object:** Zombie
 	- **Action:** **Set Mirrored** to "Not Mirrored"
   
+	![57ZombieMorrorEvents](images/57zombiemorrorevents.png?raw=true "Zombie Mirror Events")
+
+- Run the game in the browser and confirm that the Zombie faces the proper direction when he moves now.  Close the browser when you are done.
+
+A complete version of the game so far can be found here: **"Demo\End\07 - ZisForZombie - Zombie Events.capx"**
 
 <!-- ======================================================================= -->
 <a name="AddEnemy" />
@@ -409,18 +465,25 @@ So far we've done everything on the Layout page.  Now, we need to add some event
 
 We need an enemy to avoid! We'll add that next
 
-- On the **"Game Layout"**, insert a new sprite object named "Enemy"
-- Import the animations from the **"\Assets\Art\Enemy\EnemyWalking64.png"** sprite strip: 
-	- **Number of horizontal cells:** 
+- On the **"Game Layout"**, insert a new **sprite** object named **"Enemy"**
+
+	![58EnemySprite](images/58enemysprite.png?raw=true "Add Enemy Sprite")
+
+- On the "Default" animation, import the frames from the **"Demo\Assets\Art\Enemy\EnemyWalking64.png"** sprite strip: 
+	- **Number of horizontal cells:** 8
 	- **Number of vertical cells:** 1
 	- **Delete** frame **0**
 	- **Crop** the entire image (**shift-click crop**)
-	- Set the default animation speed to 10
-	- Set the default animation to Loop
+	- Set the **"Default"** animation's **"Speed"** property to **10**
+	- Set the **"Default"** animation's **"Loop"** property to **"Yes"**
+
+	![59EnemySprite](images/59enemysprite.png?raw=true "Enemy Sprite")
 
 - Add the **"Platform"** behavior to it:
 	- **Max Speed:** 100
 	- **Default Controls:** No (keeps it from responding to the keyboard)
+
+	![60EnemyPlatformBehavior](images/60enemyplatformbehavior.png?raw=true "Enemy Platform Behavior")
 
 - We want the enemy to just pace back and forth.  We'll give it some objects to collide with that cause it to referse it's direction. 
 
@@ -430,6 +493,8 @@ We need an enemy to avoid! We'll add that next
 	- Set it's **Initial Visibility** to **Invisible**
 	- Position a couple of instances around your enemy(s) to where you want them to reverse direction
 
+	![61EnemyBoundaryObjects](images/61enemyboundaryobjects.png?raw=true "Enemy Boundary Objects")
+
 - **Select** one of the **Enemy** instances on the design surface.  In the **"Properties"** panel, click the **"Instance variables"** link 
 - In the **"EnemyBoundary: Instance variables"** window, click the **"+"** button to add a new instance variable.
 - Create a new variable with the following:
@@ -438,6 +503,9 @@ We need an enemy to avoid! We'll add that next
 	- **Initial value:** Left 
 	- **Description:** Keeps track of the current direction of the enemy
 
+	![62EnemyDirectionVariable](images/62enemydirectionvariable.png?raw=true "Enemy Direction Variable")
+
+- Now we need to control the **"Enemy"** movements using events.  Switch to the **"Game Events"** tab.  
 
 - Add a new event / action:
 	- **Event Object:** System
@@ -451,9 +519,9 @@ We need an enemy to avoid! We'll add that next
 
 - Add a Sub Event:
 	- **Event Object:** Enemy
-	- **Event Condition:** Compare Instance Variable | Distance | = | "Left"
+	- **Event Condition:** Compare Instance Variable | Distance | = "Left"
 	- **Action Object:** Enemy
-	- **Action:** Set Instance Variable | Distance | "Right"
+	- **Action:** "Instance Variables" | "Set Value" | Distance | "Right"
 	- **Action Object:** Enemy
 	- **Action:** Set Mirrored | Mirrored
 
@@ -465,7 +533,7 @@ We need an enemy to avoid! We'll add that next
 
 - Add a new event:
 	- **Event Object:** System
-	- **Event Condition:** For each Enemy
+	- **Event Condition:** For Each | Enemy
 	- Add a Sub Event:
 	- **Event Object:** Enemy
 	- **Event Condition:** Compare Instance Variable | Distance | = | "Left"
@@ -475,6 +543,11 @@ We need an enemy to avoid! We'll add that next
 	- **Action Object:** Enemy
 	- **Action:** Platform | Simulate Control | Right
   
+	![63EnemyMovementEvents](images/63enemymovementevents.png?raw=true)
+
+- Run the game in the browser and verify that the enemy moves correctly, turns where the EnemyBoundary objects are, and is facing the proper direction as he moves.  You should also notice that nothing happens when the Zombie collides with an Enemy.  We'll fix that next.  Close the browser when you are done.
+
+A completed version of the game so far can be found here: **"Demo\End\08 - ZisForZombie - Enemy.capx"**
 
 <!-- ======================================================================= -->
 <a name="CheckForZombieEnemyCollisions" />
@@ -484,15 +557,27 @@ We need an enemy to avoid! We'll add that next
 
 Now, we want to check to see if Z collides with an enemy
 
-- Import sounds **"\Assets\Sounds\Grunt\Grunt.wav"** and **"\Assets\Sounds\Dying\Dying.wav"**
+- Import sounds **"Demo\Assets\Sounds\Grunt\Grunt.wav"** and **"Demo\Assets\Sounds\Dying\Dying.wav"** by dragging **right-clicking** on the **"Sounds"** folder in the **"Projects"** bar, and selecting **"Import sounds"**
+
+	![64ImportSounds](images/64importsounds.png?raw=true "Import Sounds")
+
+- Then navigate to the sound file you want to import.  Add more sounds to import by clicking the **"Add more files..."** button.  Finally, click the **"Import"** button, then click **"OK"** when the import is complete:
+
+	![65ImportAudioFiles](images/65importaudiofiles.png?raw=true "Import Audio Files")
 
 - Modify the **"System"** | **"On Start of Layout"**
-- Add an **Audio** | **Preload** | **Grunt**, and **Audio** | **Preload** | **Dying**
+	- Click on the very left edge of the "System | On start of layout" event and drag it to the top of the event sheet.  This isn't necessary but it helps me to see the things that happen first, show up first.
+	- Add an **Audio** | **Preload** | **Grunt** action
+	- Add an **Audio** | **Preload** | **Dying** action
 
-- Add a new event:
+	![65PreloadSounds](images/65preloadsounds.png?raw=true "Preload Sounds")
+
+- When the Zombie collides with an enemy, what happens depends on what the Zombie is doing.  If the Zombie falls on an Enemy, the Enemy dies and the Zombie bounces up off of him, otherwise, the Enemy kills the Zombie (normal Platform game behavior).  
+
+- Now at the bottom of the event sheet, Add a new event:
 	- **Event Object:** Zombie
 	- **Event Condition:** On collision with Enemy
-	- Add a Sub Event:
+	- Add a Sub Event (right click on the left edge of the collision event, and select **"Add"** **|** **"Add sub-Event (S)"**):
 	- **Event Object:** Zombie
 	- **Event Condition:** Platform | Is Falling?
 	- **Action Object:** Enemy
@@ -508,6 +593,12 @@ Now, we want to check to see if Z collides with an enemy
 	- **Action Object:** Audio
 	- **Action:** Play Dying | Not Looping | Volume 0
 
+	![66EnemyCollisions](images/66enemycollisions.png?raw=true "Enemy Collisions")
+
+- Play the game in the browser and verify that the Zombie can kill enemy's by falling on them, and that the enemy kills the Zombie if it runs directly into it.  Close the browser when you are done.
+
+A complete version of the game so far can be found here: **"Demo\End\09 - ZisForZombie - Enemy Collisions.capx"**
+
 
 <!-- ======================================================================= -->
 <a name="AddBrains" />
@@ -517,19 +608,63 @@ Now, we want to check to see if Z collides with an enemy
 
 We've got a hero ("Z") and some enemies.  Now let's add some Brains for "Z" to collect.  
 
-- On the **Game Layout**, **Insert a new sprite object** name **"Brain"**:
-	- Import from sprite strip: **"Assets\Art\Brains\BouncingBrain32.png"**
+- On the **Game Layout**, **Insert a new sprite object** named **"Brain"**:
+	- Import "Default" animation frames from sprite strip: **"Demo\Assets\Art\Brains\BouncingBrain32.png"**
+	- Number of Horizontal Cells: 5
+	- Number of Vertical Cells: 1
 	- delete default frame 0
 	- Crop entire image (**shift-click crop**)
 	- Set speed to 5
 	- Set looping to Yes
 
+	![67BrainSprite](images/67brainsprite.png?raw=true "BrainSprite")
+
 - Place multiple brains around the layout where Z has to jump to get them. 
 
-- Import the "Brains" sound, and pre-load it
+- Import the **"Demo\Assets\Sounds\Brains\Brains.wav"** sound 
+- Add a pre-load action to the "System | On start of layout" event at the top of the event sheet.
 - Add an event to check for Zombie / Brain collisions
 	- Destroy the brain
 	- Play the Brains sound
+
+	![68BrainEvents](images/68brainevents.png?raw=true "Brain Events")
+
+A complete version of the game so far can be found here: "**Demo\End\10 - ZisForZombie - Brains.capx"**
+
+<!-- ======================================================================= -->
+<a name="AddPits" />
+### Add Pits###
+<!-- ======================================================================= -->
+---
+
+When the Zombie falls into a pit, he just disappears.  We want him to at least screen like he is dying.  To do that, we'll place an invisible "Pit" object in those gaps that he can collide with when he falls into them.
+
+- On the **"Game Layout"** tab, make sure the **"Game"** layer is selected
+- Insert a new **"Sprite"** object named **"Pit"**
+- Place the initial on where one of the gaps in the ground are
+- Size the sprite image to 32x32
+- Fill it with a translucent red color (255,0,0,128) so we can see it on the design surface
+- Set the **"Initial Visibility"** to **"Invisible"**
+- Resize the sprite instance on the design surface to fill the pit
+
+	![69Pit](images/69pit.png?raw=true "Pit")
+
+- On the "Game Events" tab, add a new event: **"Zombie"** | **"On collision with another object"** | **"Pit"**
+- Add the action: **"Audio"** | **"Play"** | **"Dying"**
+	- **Not Looping**
+	- Tag **"DYING"**
+	- Volumn **0**
+
+- Find the previous action that plays the "Dying" sound when the zombie collides with the enemy and set the tag to "DYING" as well.
+
+	![69DyingTag](images/69dyingtag.png?raw=true "Dying Tag")
+
+- At the bottom of the Event sheet, add another event: **"Audio"** | **"On ended"** | **"DYING"**
+- Add the action: **"System"** | **"Restart layout"**
+
+-Run the game in the browser to verify that the pits work, and that when the Zombie dies (or at least when the audio tagged as "DYING" finishes playing, the game restarts. Close the browser when you are done.
+
+A complete version of the game so far can be found here: "**Demo\End\11 - ZisForZombie - Pits.capx"**
 
 <!-- ======================================================================= -->
 <a name="AddBackground" />
@@ -540,10 +675,18 @@ We've got a hero ("Z") and some enemies.  Now let's add some Brains for "Z" to c
 Let's polish things up with a background graphic and sound
 
 - With the **"Game Layout"** open in the designer, in the **"Layers"** panel, select the **"Background"** layer.  
-- Drag the **"Assets\Art\Background\NightSkyBackground2049.png"** graphic onto the layout, and position it to the left edge of the layout. Notice that it doesn't fill up the entire width.  We're going to adjust the parallax so it scrolls slower than the rest.  
+- Drag the **"Demo\Assets\Art\Background\NightSkyBackground2049.png"** graphic onto the layout, and position it to the left edge of the layout. Notice that it doesn't fill up the entire width.  We're going to adjust the parallax so it scrolls slower than the rest.  
 - Again, select the **"Background Layer"** and change the **"Parallax"** to **"50,0"**
 - In the **"Layers"** Panel, click on the **"Lock"** icon next to the layer name to lock the layer. 
-- Import the **"Assets\Sounds\Background Music\DungeonCrawl.wav"** sound
+
+	![69Background](images/69background.png?raw=true "Background")
+
+- Import the **"Demo\Assets\Sounds\Background Music\DungeonCrawl.wav"** sound file to the "Music" folder
 - Preload DungeonCrawl
 - Add an action to the **System** | **On start of layout** to play it. 
 
+	![70BackgroundMusic](images/70backgroundmusic.png?raw=true "Background Music")
+
+- Play the game in the browser and notice the new background image and music. Close the browser when you are done.
+
+A complete version of the game so far can be found here: "**12 - ZisForZombie - Background.capx"**
