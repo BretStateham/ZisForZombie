@@ -188,7 +188,7 @@ A completed version of the demo so far can be found here: **"Demo\End\03 - ZisFo
 <!-- ======================================================================= -->
 ---
 
-We need our Zombie to be able to move back and forth and jumpt to platforms (we havent' built any platforms yet though).  With Construct 2, that's easy to do using "Behaviors"
+We need our Zombie to be able to move back and forth and jump to platforms (we havent' built any platforms yet though).  With Construct 2, that's easy to do using "Behaviors"
 
 - With the **"Zombie"** sprite selected on the design surface, from the **"Properties"** panel, **click** the **"Behaviors"** link. 
 
@@ -224,7 +224,7 @@ We need our Zombie to be able to move back and forth and jumpt to platforms (we 
 
 	![27RunLayout](images/27runlayout.png?raw=true "Run Layout")
  
-- **Notice that "Z" falls right off the screen**.  That is because we don't any any platforms for him to land on.  Close the browser when done.
+- **Notice that "Z" falls right off the screen**.  That is because we don't have any platforms for him to land on.  Close the browser when done.
 
 A completed version of the demo so far can be found here: **"Demo\End\04 - ZisForZombie - Zombie Behaviors.capx"**
 
